@@ -4,6 +4,8 @@ resource "aws_instance" "mongodb" {
   vpc_security_group_ids = [local.mongodb_sg_id]
   subnet_id = local.database_subnet_id
 
+  iam_instance_profile = "instanceRole"
+
   tags = merge(
     local.common_tags,
     {
